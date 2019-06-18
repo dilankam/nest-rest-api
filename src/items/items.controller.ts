@@ -7,7 +7,7 @@ import {Item} from './iterfaces/item.interface';
 
 @Controller('items')
 export class ItemsController {
-
+    constructor(private readonly itemsService: ItemsService) {}
     /*
     //How to return response in express way
     @Get() // http://localhost:3000/items

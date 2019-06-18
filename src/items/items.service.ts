@@ -5,19 +5,20 @@ import { Item } from './iterfaces/item.interface';
 export class ItemsService {
     private readonly items: Item[] = [
         {
-            id: "23423423",
-            name: "fsfdfsd",
+            id: '23423423',
+            name: 'fsfdfsd',
             qty: 100,
-            description: "fsxcv xcxv fdfsd",
+            description: 'fsxcv xcxv fdfsd',
         },
         {
-            id: "5232353",
-            name: "fsfdfsd",
+            id: '5232353',
+            name: 'fsfdfsd',
             qty: 50,
-            description: "fsxcv xcxv fdfsd",
+            description: 'fsxcv xcxv fdfsd',
         },
     ];
 
+    
     findAll(): Item[] {
         return this.items;
     }
