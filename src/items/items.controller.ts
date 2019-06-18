@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body,Param} from '@nestjs/common';
+import { Controller, Get, Post, Body,Param, Delete, Put} from '@nestjs/common';
 import { CreateItemDto } from './dto/create-item.dto';
 // import { Request, Response} from 'express'; //How to return response in express way
 // import { Req, Res } from '@nestjs/common'; //How to return response in express way
@@ -36,5 +36,15 @@ export class ItemsController {
     @Post()
     create(@Body() createItemDto: CreateItemDto): string {
         return `Name: ${createItemDto.name} Desc ${createItemDto.description}`;
+    }
+
+    @Delete(':id')
+    delete(@Param('id') id): string {
+        return `delete Id : ${id}`;
+    }
+
+    @Put(':id')
+    update(@Body() updateItemDto: CreateItemDto, @Param('id') id): string {
+        return `Update ${id} Name: ${updateItemDto.name} Desc ${updateItemDto.description}`;
     }
 }
