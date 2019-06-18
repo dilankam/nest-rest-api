@@ -1,10 +1,13 @@
-import { Controller, Get, Post, Body,Param, Delete, Put} from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, Put} from '@nestjs/common';
 import { CreateItemDto } from './dto/create-item.dto';
+import {ItemsService} from './items.service';
+import {Item} from './iterfaces/item.interface';
 // import { Request, Response} from 'express'; //How to return response in express way
 // import { Req, Res } from '@nestjs/common'; //How to return response in express way
 
 @Controller('items')
 export class ItemsController {
+
     /*
     //How to return response in express way
     @Get() // http://localhost:3000/items
