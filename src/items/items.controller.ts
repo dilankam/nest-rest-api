@@ -18,8 +18,9 @@ export class ItemsController {
     */
 
     @Get() // http://localhost:3000/items
-    findAll(): string {
-        return 'Get all items';
+    findAll(): Item[] {
+        // return 'Get all items';
+        return this.itemsService.findAll();
     }
 
     /*
@@ -32,8 +33,8 @@ export class ItemsController {
 
     // with get parameter
    @Get(':id')
-   findOne(@Param('id') id): string {
-       return `Id : ${id}`;
+   findOne(@Param('id') id): Item {
+       return this.itemsService.findOne(id);
    }
 
     @Post()

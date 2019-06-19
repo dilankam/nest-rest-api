@@ -17,9 +17,11 @@ export class ItemsService {
             description: 'fsxcv xcxv fdfsd',
         },
     ];
-
-    
     findAll(): Item[] {
         return this.items;
+    }
+
+    findOne(id: string): Item {
+        return this.items.find(item => item.id === id);
     }
 }
