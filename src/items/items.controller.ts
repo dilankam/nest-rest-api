@@ -18,7 +18,7 @@ export class ItemsController {
     */
 
     @Get() // http://localhost:3000/items
-    findAll(): Item[] {
+    async findAll(): Promise<Item[]> {
         // return 'Get all items';
         return this.itemsService.findAll();
     }
@@ -33,22 +33,22 @@ export class ItemsController {
 
     // with get parameter
    @Get(':id')
-   findOne(@Param('id') id): Item {
+   async findOne(@Param('id') id): Promise<Item> {
        return this.itemsService.findOne(id);
    }
 
     @Post()
-    create(@Body() createItemDto: CreateItemDto): string {
-        return `Name: ${createItemDto.name} Desc ${createItemDto.description}`;
+    create(@Body() createItemDto: CreateItemDto): Promise<Item> {
+        return this.itemsService.create(createItemDto);
     }
 
     @Delete(':id')
-    delete(@Param('id') id): string {
-        return `delete Id : ${id}`;
+    delete(@Param('id') id): Promise<Item> {
+        return this.itemsService.delete(id);
     }
 
     @Put(':id')
-    update(@Body() updateItemDto: CreateItemDto, @Param('id') id): string {
-        return `Update ${id} Name: ${updateItemDto.name} Desc ${updateItemDto.description}`;
+    update(@Body() updateItemDto: CreateItemDto, @Param('id') id): Promise<Item> {
+        return this.itemsService.update(id, updateItemDto);
     }
 }
